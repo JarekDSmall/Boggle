@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Boggle Game</title>
+</head>
+<body>
+    <h1>Boggle Game</h1>
+    <div id="board">
+        {% for row in board %}
+            <div class="row">
+                {% for letter in row %}
+                    <div class="cell">{{ letter }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <form id="word-form">
+            <input type="text" id="word-input" placeholder="Enter a word">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <p id="timer"></p>
+
+    <p id="result-message"></p>
+    <button id="play-again">Play Again</button>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
+
